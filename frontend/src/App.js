@@ -6,9 +6,10 @@ import ContactList from "./components/ContactList";
 
 function App() {
   const [contacts, setContacts] = useState([]);
+  const baseURL=import.meta.env==="development" ? "http://localhost:5000/api/contacts":"/api/contacts"
 
   const fetchContacts = async () => {
-    const res = await axios.get("http://localhost:5000/api/contacts");
+    const res = await axios.get(baseURL);
     setContacts(res.data);
   };
 
